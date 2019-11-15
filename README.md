@@ -83,7 +83,7 @@ The last component is within the folder `slack_bot` . to run it, you need to reg
 an app at [slack.api](https://api.slack.com) and get `Bot User OAuth Access Token`
 that you would place into the token variable inside `slack_bot.py`.
 
-It read the last hour data of Postgres database every hour (it can be easily modified to any time period)
+It reads the last hour data of Postgres database every hour (it can be easily modified to any time period)
 and compute the percentage of tweets being neutral, positive or negative, and post a message
 into the slack channel you registered your app.
 
