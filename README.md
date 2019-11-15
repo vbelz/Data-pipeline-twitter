@@ -48,7 +48,7 @@ get relevant information). This can be easily adapted. Then the data is stored i
 The mongo database is running inside a docker container (built from docker mongo image),
 and will receive a continuous stream of tweets. Data can be accessed as it is created (with a program
 like Studio 3T for example, cf below) from the port 27021 (cf `docker-compose.yml`). It can be modified
-to any unused port in this file if needed.
+to any unused port if needed.
 
 <img src="mongo_example.png" alt="Studio 3T" title="Studio 3T"  />
 
@@ -71,21 +71,21 @@ analysis tool that is specifically attuned to sentiments expressed in social med
 I add to the tweet data a positivity score, a negativity score, a neutral score, a global score
 as well as a text label between `neutral`, `positive` and `negative`.
 
-Then it is loaded into a Postgres database. Data can be accessed as it is created (with a program
+Then it is saved into a Postgres database. Data can be accessed as it is created (with a program
 like Postico for example, cf below) from the port 5554 (cf `docker-compose.yml`). It can be modified
-to any unused port in this file if needed.
+to any unused port if needed.
 
 <img src="postgres_example.png" alt="Postico" title="Postico"  />
 
 ## Slack Bot
 
-The last component is within the folder `slack_bot` . to run it, you need to register
+The last component is within the folder `slack_bot` . To run it, you need to register
 an app at [slack.api](https://api.slack.com) and get `Bot User OAuth Access Token`
 that you would place into the token variable inside `slack_bot.py`.
 
 It reads the last hour data of Postgres database every hour (it can be easily modified to any time period)
 and compute the percentage of tweets being neutral, positive or negative, and post a message
-into the slack channel you registered your app.
+into the slack channel where you registered your app.
 
 ## Metabase
 
