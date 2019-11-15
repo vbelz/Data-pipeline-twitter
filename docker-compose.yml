@@ -1,0 +1,26 @@
+version: '3'
+services:
+  tweet_collector:
+    build: tweet_collector/
+    volumes:
+    - ./tweet_collector/:/app
+  etl_job:
+    build: etl_job/
+    volumes:
+    - ./etl_job/:/app2
+  mongodb:
+    image: mongo
+    ports:
+    - "27021:27017"
+  postgresdb:
+    image: postgres
+    environment:
+    - POSTGRES_USER=admin
+    - POSTGRES_PASSWORD=admin
+    - POSTGRES_DB=twitter_database
+    ports:
+    - "5554:5432"
+  slack_bot:
+    build: slack_bot/
+    volumes:
+    - ./slack_bot/:/app3

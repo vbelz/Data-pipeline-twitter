@@ -1,0 +1,6 @@
+pandas ==0.23.4
+pymongo == 3.9.0
+sqlalchemy == 1.2.12
+requests
+vaderSentiment
+psycopg2-binary
